@@ -14,17 +14,19 @@
     />
   </head>
   <body
-    class="background-animate h-screen w-full bg-gradient-to-r from-indigo-200 via-red-200 to-yellow-100"
+    class="background-animate to h-screen w-full bg-gradient-to-r from-indigo-200 via-red-200 to-yellow-100 dark:bg-gradient-to-r dark:from-blue-900 dark:via-red-900 dark:to-gray-900"
   >
     <div class="grid h-screen place-items-center">
       <div class="rounded-2xl shadow-2xl">
         <div class="grid grid-cols-6 divide-x-0">
           <div
-            class="md:rounded--2xl col-span-6 flex items-center rounded-t-2xl bg-white p-5 md:col-span-4 md:rounded-tr-none md:rounded-bl-2xl"
+            class="md:rounded--2xl col-span-6 flex items-center rounded-t-2xl bg-white p-5 dark:bg-gray-800 md:col-span-4 md:rounded-tr-none md:rounded-bl-2xl"
           >
             <form action="javascript:getQR()" class="w-full text-center">
               <!-- URL/Text -->
-              <label for="text" class="block text-sm font-bold text-gray-700"
+              <label
+                for="text"
+                class="block text-sm font-bold text-gray-700 dark:text-white"
                 ><i class="bi bi-pen-fill pr-2"></i>Enter URL/Text:</label
               >
               <div class="mt-1">
@@ -32,14 +34,14 @@
                   id="text"
                   type="text"
                   required
-                  class="qr-input focus:ring-indigo-500; w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500"
+                  class="qr-input focus:ring-indigo-500; w-full rounded-lg border-gray-300 shadow-sm focus:border-rose-700 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:focus:border-white"
                 />
               </div>
               <!-- Color Picker -->
               <div class="mt-5">
                 <label
                   for="colorpicker"
-                  class="block text-sm font-bold text-gray-700"
+                  class="block text-sm font-bold text-gray-700 dark:text-white"
                   ><i class="bi bi-palette-fill pr-2"></i>Choose a Color:</label
                 >
                 <div class="mt-1">
@@ -58,7 +60,7 @@
           </div>
           <!-- QR Code -->
           <div
-            class="col-span-6 rounded-b-2xl border border-gray-100 bg-gray-200 bg-opacity-30 bg-clip-padding p-5 text-center backdrop-blur-lg backdrop-filter md:col-span-2 md:rounded-l-none md:rounded-tr-2xl"
+            class="col-span-6 rounded-b-2xl border border-gray-100 bg-gray-200 bg-opacity-30 bg-clip-padding p-5 text-center backdrop-blur-lg backdrop-filter dark:border-gray-800 dark:text-white md:col-span-2 md:rounded-l-none md:rounded-tr-2xl"
           >
             <h2 class="mb-5 text-2xl font-bold">Your QR Code:</h2>
             <div
