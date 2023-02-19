@@ -16,11 +16,11 @@
   <body
     class="background-animate h-screen w-full bg-gradient-to-r from-indigo-200 via-red-200 to-yellow-100"
   >
-    <div class="z-10 grid h-screen place-items-center">
-      <div class="my-auto rounded-2xl shadow-2xl">
-        <div class="grid h-full grid-cols-6 divide-x-0">
+    <div class="grid h-screen place-items-center">
+      <div class="rounded-2xl shadow-2xl">
+        <div class="grid grid-cols-6 divide-x-0">
           <div
-            class="col-span-4 flex h-full items-center rounded-tl-2xl rounded-bl-2xl bg-white p-5"
+            class="md:rounded--2xl col-span-6 flex items-center rounded-t-2xl bg-white p-5 md:col-span-4 md:rounded-tr-none md:rounded-bl-2xl"
           >
             <form action="javascript:getQR()" class="w-full text-center">
               <!-- URL/Text -->
@@ -43,17 +43,13 @@
                   ><i class="bi bi-palette-fill pr-2"></i>Choose a Color:</label
                 >
                 <div class="mt-1">
-                  <input
-                    id="colorpicker"
-                    type="color"
-                    required
-                  />
+                  <input id="colorpicker" type="color" required />
                 </div>
               </div>
               <!-- Submit -->
               <button
                 type="submit"
-                class="transition mt-8 ease-in-out duration-300 mx-auto flex w-1/2 justify-center rounded-md border border-transparent bg-rose-400 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-rose-500 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-rose-500/50 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-rose-700 focus:ring-offset-2"
+                class="mx-auto mt-8 flex w-full justify-center rounded-md border border-transparent bg-rose-400 py-2 px-4 text-sm font-medium text-white shadow-sm transition duration-300 ease-in-out hover:-translate-y-0.5 hover:scale-105 hover:bg-rose-500 hover:shadow-lg hover:shadow-rose-500/50 focus:outline-none focus:ring-2 focus:ring-rose-700 focus:ring-offset-2 md:w-1/2"
               >
                 <i class="bi bi-qr-code pr-2"></i>
                 Generate QR Code
@@ -62,7 +58,7 @@
           </div>
           <!-- QR Code -->
           <div
-            class="col-span-2 h-full w-full rounded-md rounded-tr-2xl rounded-br-2xl border border-gray-100 bg-gray-200 bg-opacity-30 bg-clip-padding p-5 text-center backdrop-blur-lg backdrop-filter"
+            class="col-span-6 rounded-b-2xl border border-gray-100 bg-gray-200 bg-opacity-30 bg-clip-padding p-5 text-center backdrop-blur-lg backdrop-filter md:col-span-2 md:rounded-l-none md:rounded-tr-2xl"
           >
             <h2 class="mb-5 text-2xl font-bold">Your QR Code:</h2>
             <div
@@ -78,7 +74,7 @@
                 href="/assets/qrcode.png"
                 download="myqrcode.jpg"
                 download
-                class="transition ease-in-out duration-300 mx-auto flex w-1/2 justify-center rounded-md border border-transparent bg-rose-400 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-rose-500 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-rose-500/50 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-rose-700 focus:ring-offset-2"
+                class="mx-auto flex w-1/2 justify-center rounded-md border border-transparent bg-rose-400 py-2 px-4 text-sm font-medium text-white shadow-sm transition duration-300 ease-in-out hover:-translate-y-0.5 hover:scale-105 hover:bg-rose-500 hover:shadow-lg hover:shadow-rose-500/50 focus:outline-none focus:ring-2 focus:ring-rose-700 focus:ring-offset-2"
               >
                 <i class="bi bi-download pr-2"></i>Download
               </a>
@@ -95,8 +91,8 @@
       // QR Code Image
       var qrImg = document.querySelector(".qr-image");
       // Remove Hash from Color
-      function removeHash (hex) {
-        return (hex.charAt(0)=="#") ? hex.substring(1,7) : hex
+      function removeHash(hex) {
+        return hex.charAt(0) == "#" ? hex.substring(1, 7) : hex;
       }
       // Choose Background Color based on Contrast
       function getBackgroundColor(color) {
@@ -110,11 +106,13 @@
         if (r * 0.299 + g * 0.587 + b * 0.114 > 186) {
           document.getElementById("backgroundqr").classList.remove("bg-white");
           document.getElementById("backgroundqr").classList.add("bg-gray-800");
-          return "31-41-55"
+          return "31-41-55";
         } else {
-          document.getElementById("backgroundqr").classList.remove("bg-gray-800");
+          document
+            .getElementById("backgroundqr")
+            .classList.remove("bg-gray-800");
           document.getElementById("backgroundqr").classList.add("bg-white");
-          return "255-255-255"
+          return "255-255-255";
         }
       }
       // Generate QR Code
@@ -127,7 +125,7 @@
             color +
             "&data=" +
             qrInput.value +
-            "&bgcolor="+
+            "&bgcolor=" +
             getBackgroundColor(color);
           document.getElementById("download").href = qrImg.src + ".png";
         }
