@@ -164,7 +164,6 @@ Project Link: [https://github.com/JoaoFranco03/qr-code-generator/](https://githu
 [CSS-url]: https://developer.mozilla.org/en-US/docs/Web/CSS
 [JS-badge]: https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black
 [JS-url]: https://developer.mozilla.org/en-US/docs/Web/JavaScript
-[license-shield]: https://img.shields.io/github/license/JoaoFranco03/qr-code-generator.svg?style=for-the-badge
 [license-url]: https://github.com/JoaoFranco03/qr-code-generator/blob/main/LICENSE.md
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/joão-franco-452161195/
