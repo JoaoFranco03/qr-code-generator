@@ -1,0 +1,20 @@
+{
+  "name": "qr-code-generator",
+  "version": "1.0.0",
+  "description": "A Website that Generates QR Codes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.3",
+    "prettier": "^2.8.4",
+    "prettier-plugin-tailwindcss": "^0.2.3",
+    "tailwindcss": "^3.2.7"
+  },
+  "dependencies": {
+    "bootstrap-icons": "^1.10.3"
+  }
+}

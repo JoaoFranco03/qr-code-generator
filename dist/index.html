@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QR Code Generator</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+    <link rel="stylesheet" href="output.css" />
+    <link rel="stylesheet" href="/src/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+    />
+  </head>
+  <body
+    class="background-animate h-screen w-full bg-gradient-to-r from-indigo-200 via-red-200 to-yellow-100"
+  >
+    <div class="z-10 grid h-screen place-items-center">
+      <div class="my-auto rounded-2xl shadow-2xl">
+        <div class="grid h-full grid-cols-6 divide-x-0">
+          <div
+            class="col-span-4 flex h-full items-center rounded-tl-2xl rounded-bl-2xl bg-white p-5"
+          >
+            <form action="javascript:getQR()" class="w-full text-center">
+              <!-- URL/Text -->
+              <label for="text" class="block text-sm font-bold text-gray-700"
+                ><i class="bi bi-pen-fill pr-2"></i>Enter URL/Text:</label
+              >
+              <div class="mt-1">
+                <input
+                  id="text"
+                  type="text"
+                  required
+                  class="qr-input focus:ring-indigo-500; w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500"
+                />
+              </div>
+              <!-- Color Picker -->
+              <div class="mt-5">
+                <label
+                  for="colorpicker"
+                  class="block text-sm font-bold text-gray-700"
+                  ><i class="bi bi-palette-fill pr-2"></i>Choose a Color:</label
+                >
+                <div class="mt-1">
+                  <input
+                    id="colorpicker"
+                    type="color"
+                    required
+                  />
+                </div>
+              </div>
+              <!-- Submit -->
+              <button
+                type="submit"
+                class="transition mt-8 ease-in-out duration-300 mx-auto flex w-1/2 justify-center rounded-md border border-transparent bg-rose-400 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-rose-500 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-rose-500/50 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-rose-700 focus:ring-offset-2"
+              >
+                <i class="bi bi-qr-code pr-2"></i>
+                Generate QR Code
+              </button>
+            </form>
+          </div>
+          <!-- QR Code -->
+          <div
+            class="col-span-2 h-full w-full rounded-md rounded-tr-2xl rounded-br-2xl border border-gray-100 bg-gray-200 bg-opacity-30 bg-clip-padding p-5 text-center backdrop-blur-lg backdrop-filter"
+          >
+            <h2 class="mb-5 text-2xl font-bold">Your QR Code:</h2>
+            <div
+              class="mx-auto w-fit rounded-lg bg-white p-5"
+              id="backgroundqr"
+            >
+              <img src="/assets/qrcode.png" class="qr-image h-48" alt="" />
+            </div>
+            <div class="py-3">
+              <a
+                id="download"
+                type="submit"
+                href="/assets/qrcode.png"
+                download="myqrcode.jpg"
+                download
+                class="transition ease-in-out duration-300 mx-auto flex w-1/2 justify-center rounded-md border border-transparent bg-rose-400 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-rose-500 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-rose-500/50 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-rose-700 focus:ring-offset-2"
+              >
+                <i class="bi bi-download pr-2"></i>Download
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      // QR Code Generator Button
+      var generateBtn = document.querySelector(".generate-btn");
+      // Text/URL Input
+      var qrInput = document.querySelector(".qr-input");
+      // QR Code Image
+      var qrImg = document.querySelector(".qr-image");
+      // Remove Hash from Color
+      function removeHash (hex) {
+        return (hex.charAt(0)=="#") ? hex.substring(1,7) : hex
+      }
+      // Choose Background Color based on Contrast
+      function getBackgroundColor(color) {
+        // Convert to RGBA value
+        var r = parseInt(color.substring(0, 2), 16);
+        var g = parseInt(color.substring(2, 4), 16);
+        var b = parseInt(color.substring(4, 6), 16);
+        var a = (r + g + b) / (3 * 255);
+        rgba = "rgba(" + r + ", " + g + ", " + b + ", " + a + ")";
+        // Check Contrast
+        if (r * 0.299 + g * 0.587 + b * 0.114 > 186) {
+          document.getElementById("backgroundqr").classList.remove("bg-white");
+          document.getElementById("backgroundqr").classList.add("bg-gray-800");
+          return "31-41-55"
+        } else {
+          document.getElementById("backgroundqr").classList.remove("bg-gray-800");
+          document.getElementById("backgroundqr").classList.add("bg-white");
+          return "255-255-255"
+        }
+      }
+      // Generate QR Code
+      function getQR() {
+        if (qrInput.value.length > 0) {
+          var color = document.getElementById("colorpicker").value;
+          color = removeHash(color);
+          qrImg.src =
+            "https://api.qrserver.com/v1/create-qr-code/?size=170x170&color=" +
+            color +
+            "&data=" +
+            qrInput.value +
+            "&bgcolor="+
+            getBackgroundColor(color);
+          document.getElementById("download").href = qrImg.src + ".png";
+        }
+      }
+    </script>
+  </body>
+</html>
