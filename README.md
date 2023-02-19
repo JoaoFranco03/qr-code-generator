@@ -113,6 +113,7 @@ To get a local copy up and running follow these simple example steps.
 - [x] Adapt the Square Background Color Based on the Contrast
 - [x] Add a Download Button
 - [x] Make the Website Responsive
+- [x] Dark Mode
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
