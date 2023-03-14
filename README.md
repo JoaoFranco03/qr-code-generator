@@ -34,6 +34,9 @@
     A QR Code Generator created using Tailwind CSS, HTML, CSS and JavaScript
     <br />
     <br />
+    <a href="https://qr-code-generator-joaofranco03.netlify.app">View Demo</a>
+    <br />
+    <br />
   </p>
 </div>
 
