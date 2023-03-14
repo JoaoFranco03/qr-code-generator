@@ -12,6 +12,9 @@ input[type="color"]::-webkit-color-swatch-wrapper {
 input[type="color"]::-webkit-color-swatch {
   border: none;
   border-radius: 0.5rem;
+  border-style: solid;
+  border-width: thin;
+  border-color: lightgray;
 }
 
 .background-animate {
