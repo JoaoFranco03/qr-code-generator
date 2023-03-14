@@ -25,7 +25,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/JoaoFranco03/EcoRede">
-    <img src="assets/qrcode.png" alt="Logo" width="80" height="80">
+    <img src="dist/assets/qrcode.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">QR Code Generator</h3>
@@ -166,4 +166,4 @@ Project Link: [https://github.com/JoaoFranco03/qr-code-generator/](https://githu
 [license-url]: https://github.com/JoaoFranco03/qr-code-generator/blob/main/LICENSE.md
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/joão-franco-452161195/
-[product-screenshot]: assets/mockup.png
+[product-screenshot]: dist/assets/mockup.png
